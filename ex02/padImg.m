@@ -8,8 +8,18 @@ function [Ap,p] = padImg(A)
 %See also padarray.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% YOUR CODE HERE
+p1 = ceil( (sqrt(size(A,1).^2 + size(A,2).^2) - size(A,1) ) / 2);
+p2 = ceil( (sqrt(size(A,1).^2 + size(A,2).^2) - size(A,2) ) / 2);
+p = max(p1, p2);
+top = zeros(p, size(A,2) + p.*2, size(A,3));
+side = zeros(size(A,1), p, size(A,3));
+middle = [side, A, side];
+
+Ap = [top;middle; top];
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%by NAME
+end
+
+%by Sergej Keller, Lennart Scherz, Pascal Urban
