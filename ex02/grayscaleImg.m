@@ -13,7 +13,44 @@ function [B] = grayscaleImg(A,method)
 %   See also rgb2gray.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% YOUR CODE HERE
+    red   = A(:,:,1);   % get red pane
+    green = A(:,:,2);   % get green pane
+    blue  = A(:,:,3);   % get blue pane
+
+    z_dim = 1;
+    
+    B = zeros(size(A,1), size(A,1), z_dim);    % preallocate B matrix 
+
+    switch(lower(method))
+
+        % a.)
+        case 'average'
+            B = repmat(1/3 * (red + green + blue),1,1,z_dim);
+
+        % b.)
+        case 'luma'
+            B = repmat(0.2126 * red + 0.7152 * green + 0.0722 *  blue,1,1,z_dim);
+
+        % c.)
+        case 'desaturation'
+            B = repmat(1/2 * (max(A,[],3) + min(A, [],3)),1,1,z_dim);   % midpoint of min max in rgb triplets
+
+        % d.)
+        case 'digicam'
+            B = repmat(green,1,1,z_dim);    % take green pane values as grey
+
+        % e.)
+        case '4bit'
+            A = repmat(1/3 * (red + green + blue),1,1,z_dim);   % get average
+            B = repmat((A(:,:,1)/(2^4+1))*(2^4+1),1,1,z_dim);   % convert to 4 bit
+            
+        % f.)
+        case'unknown'
+
+    end
+    B = round(B);
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%by NAME
+
+%by Sergej Keller, Lennart Scherz, Pascal Urban
