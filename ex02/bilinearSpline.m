@@ -15,10 +15,10 @@ Y = 1:.1:3;
 % spline function
 Z = spline_func(A,X.',Y);
 
-# plot and ...
+% plot and ...
 surf(X,Y,Z);
 
-# ... set axis
+% ... set axis
 axis([1, size(A,1), 1, size(A,2), 0, 255]);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
