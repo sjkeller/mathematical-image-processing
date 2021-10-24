@@ -1,8 +1,5 @@
 function [Z] = spline_func(A,X,Y)
 
-%[m,n] = size(x);
-%b_spline = @(x,y) max( zeros(m,n), 1 - abs(x) ) .* max( zeros(m,n), 1 - abs(y) );
-
 B = @(x) max(zeros(size(x)), 1 - abs(x));
 
 Z = zeros(size(X));
