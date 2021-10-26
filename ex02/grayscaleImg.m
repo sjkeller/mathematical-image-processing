@@ -17,7 +17,7 @@ function [B] = grayscaleImg(A,method)
     green = A(:,:,2);   % get green pane
     blue  = A(:,:,3);   % get blue pane
 
-    z_dim = 1;
+    z_dim = 3;
     
     B = zeros(size(A,1), size(A,1), z_dim);    % preallocate B matrix 
 
