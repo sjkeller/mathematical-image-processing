@@ -47,7 +47,7 @@ function [B] = rotateImg(A,phi,method)
         case 'bilinear'
             
             % define bilinear function
-            b = @(x,y,i,j) (1 - abs(x-i))*(1 - abs(y-j));
+            b = @(x,y,i,j) max((1 - abs(x-i))*(1 - abs(y-j)), 0);
             
             % loop over rotated pixel coordinate vector
             for jj = 1:size(coord_rot,1)
