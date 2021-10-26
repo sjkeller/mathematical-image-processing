@@ -1,9 +1,9 @@
 function [Z] = spline_func(A,X,Y)
 
-# spline function
+% spline function
 B = @(x) max(zeros(size(x)), 1 - abs(x));
 
-# build zero vector
+% build zero vector
 Z = zeros(size(X));
 
 for i=1:size(A,1)
