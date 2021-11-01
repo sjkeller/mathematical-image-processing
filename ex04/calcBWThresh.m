@@ -9,7 +9,6 @@ B = zeros(size(A));
 switch method
     case "manual"
         if nargin > 2
-            B(A <= v) = 0;
             B(A > v) = 255;
             t = v;
         else
@@ -18,7 +17,6 @@ switch method
         end
     case "median"
         m = median(A);
-        B(A <= m) = 0;
         B(A > m) = 255;
        
     case "isodata"
