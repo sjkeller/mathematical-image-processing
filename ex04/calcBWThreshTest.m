@@ -13,10 +13,7 @@ no = 1;
 %% Test if function handles RGB images correctly
 try
     [img,~] = calcBWThresh(A,method{1},10);
-    
-    
     test(no) = (size(img,3)==1);
-    
     
 catch error
     test(no) = 0;
@@ -78,7 +75,7 @@ no = no+1;
 try
     [~,t] = calcBWThresh(A,method{4},10);
     
-    test(no) = (t == 126);
+    test(no) = (t == 125);
     
 catch error
     test(no) = 0;
