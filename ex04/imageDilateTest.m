@@ -48,7 +48,7 @@ no = no+1;
 %% Test if function returns correct output for grayscale input
 try
     VV = imageDilate(U,B);
-    test(no) = (sum(sum(VV != V)) == 0);
+    test(no) = (sum(sum(VV ~= V)) == 0);
     
 catch error
     test(no) = 0;
