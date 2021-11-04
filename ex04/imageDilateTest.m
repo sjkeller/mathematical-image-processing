@@ -60,7 +60,7 @@ no = no+1;
 %% Test with Octave imdilate function output
 try
     VV = imageDilate(U,B);
-    test(no) = (sum(sum(imdilate(U,B) ~= V)) == 0);
+    test(no) = (sum(sum(imdilate(U,B) ~= VV)) == 0);
     
 catch error
     test(no) = 0;
