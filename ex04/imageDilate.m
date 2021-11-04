@@ -15,15 +15,15 @@ for x=1:size(U,1)
     for y=1:size(U,2)
 
         % check if pixel not white 
-        if U(x,y) > 0
+        if U(x,y) < 255
 
             % iterate around structure element B area inside image U
             for i=1:size(B,1)
                 for j=1:size(B,2)
                     
                     % if indices are not out of bound apply grayscale color
-                    if i-mid_x > 0 && j-mid_y > 0
-                        U(i-mid_x, j-mid_y) = U(x,y);
+                    if x-mid_x > 0 && y-mid_y > 0
+                        V(x-mid_x+i, y-mid_y+j) = U(x,y);
                     end
 
                 end
@@ -33,6 +33,5 @@ for x=1:size(U,1)
 
     end
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %by Sergej Keller, Lennart Scherz, Pascal Urban
