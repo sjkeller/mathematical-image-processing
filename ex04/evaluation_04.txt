@@ -1,0 +1,11 @@
+Points for the assignments of week 04
+
+Task   : Your points / Achievable points
+
+Ex 3.3 : 4 / 5
+Ex 4.1 : 1 / 2
+Ex 4.2 : 3 / 3
+You have achieved 28 of 30 points so far.
+
+Comment: Otsus Idea is correct, but error occures in the use of var(). Wrong Threshold
+Matlabs Var does not weight the variance -> need probability of white and black.
