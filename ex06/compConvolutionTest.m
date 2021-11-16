@@ -10,7 +10,7 @@ no=1;
 
 %test unit element
 try    
-    test(no) = (min(compConvolution(x,1,'linear') == x) == 1);
+    test(no) = (min(compConvolution(x,1,'zero') == x) == 1);
 
 catch error
     test(no) = 0;
@@ -21,7 +21,7 @@ no = no+1;
 
 %test symmetry
 try    
-    test(no) = (min(compConvolution(1,x,'linear') == x) == 1);
+    test(no) = (min(compConvolution(1,x,'zero') == x) == 1);
     
 catch error
     test(no) = 0;
@@ -32,7 +32,7 @@ no = no+1;
 
 %test convolution
 try    
-    test(no) = (min(compConvolution([1,1,1],x,'linear') == conv([1,1,1],x)) == 1);
+    test(no) = (min(compConvolution([1,1,1],x,'zero') == conv([1,1,1],x)) == 1);
     
 catch error
     test(no) = 0;
