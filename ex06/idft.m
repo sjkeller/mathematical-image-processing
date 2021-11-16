@@ -15,6 +15,8 @@ for ii = 1:n+1
     omega(ii + 1) = (2 * ii * pi) / n;
 end
 
+f = zeros(1, n);
+
 % sum up inverse fourier coefficients
 for ii=1:n
     f_tmp = 0;
