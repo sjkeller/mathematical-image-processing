@@ -17,11 +17,11 @@ end
 
 % sum up inverse fourier coefficients
 for ii=1:n
-    F_tmp = 0;
+    f_tmp = 0;
     for jj=1:n
-        F_tmp = F_tmp + (F(jj) * exp(1i * omega(jj) * (ii - 1)));
+        f_tmp = f_tmp + (F(jj) * exp(1i * omega(jj) * (ii - 1)));
     end
-    f(ii) = F_tmp / n;
+    f(ii) = f_tmp / n;
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
