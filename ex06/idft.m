@@ -7,7 +7,7 @@ function f = idft(F)
 % get size of input function
 n = numel(F);
 
-% init omega variable of dft formula
+% init omega variable of inverse dft formula
 omega = zeros(1, n + 1);
 
 % preallocate values for omega
