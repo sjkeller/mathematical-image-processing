@@ -16,7 +16,7 @@ for ii = 1:n+1
 end
 
 % sum up fourier coefficients
-for ii=1:4
+for ii=1:n
     F_tmp = 0;
     for jj=1:n
         F_tmp = F_tmp + (f(jj) * exp(-1i * omega(ii) * (jj - 1)));
