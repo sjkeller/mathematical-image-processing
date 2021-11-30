@@ -20,7 +20,7 @@ A_double = im2double(A);
 F = fft2(A_double);
 F_shifted = fftshift(F);
 F_filtered_shifted = F_shifted .*  u;
-F_filtered = fftshift(F_filtered_shifted);
+F_filtered = fftshift(F_filtered_shifted);  %fftshift is not it's own inverse -> ifftshift (ex. uneven array)
 
 g_double = real(ifft2(F_filtered));
 B = im2uint8(g_double);

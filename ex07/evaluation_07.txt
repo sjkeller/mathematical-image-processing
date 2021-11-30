@@ -1,0 +1,12 @@
+Points for the assignments of week 07
+
+Task   : Your points / Achievable points
+
+Ex 5.7(a) : 1 / 1
+Ex 5.7(b) : 3 / 3
+Ex 5.7(c) : 3 / 3
+Ex 5.7(c) : 3 / 3
+
+You have achieved 53.5 of 60 points so far.
+
+Comment: fftshift is not it's own inverse -> ifftshift (ex. uneven array)
