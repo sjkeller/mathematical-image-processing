@@ -11,7 +11,7 @@ imshow(noise);
 denoise = noise;
 
 for i=0:100
-    denoise = heatEquationStep(denoise, 100);
+    denoise = heatEquationStep(denoise, 0.1);
     imshow(denoise);
     pause(0.1)
 end
