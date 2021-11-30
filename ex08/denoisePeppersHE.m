@@ -3,7 +3,18 @@
 %See also.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% YOUR CODE HERE
+image = imread("peppers_gray.png");
+noise = imnoise(image,'gaussian', 0, 0.01);
+
+imshow(noise);
+
+denoise = noise;
+
+for i=0:100
+    denoise = heatEquationStep(denoise, 100);
+    imshow(denoise);
+    pause(0.1)
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%by NAME
+%by Sergej Keller, Lennart Scherz, Pascal Urban
