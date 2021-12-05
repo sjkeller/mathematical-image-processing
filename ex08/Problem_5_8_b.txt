@@ -1,0 +1,5 @@
+The Gaussian Kernel can be applied for images with continuous and discrete space domains.
+Thus, u_0 does not have to be continuous.
+
+The heat equation produces a smooth expansion of initial areas.
+This implies, that the resulting smoothness depends on the initial u_0.
