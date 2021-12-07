@@ -3,3 +3,6 @@ Thus, u_0 does not have to be continuous.
 
 The heat equation produces a smooth expansion of initial areas.
 This implies, that the resulting smoothness depends on the initial u_0.
+
+Difference: continuouse & discrete vs continuouse & discontinuouse.
+Also u_0 does not need to be smooth -> see Chapter 5.6
