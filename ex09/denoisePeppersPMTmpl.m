@@ -9,7 +9,7 @@ imshow(noise);
 
 denoise = noise;
 
-for i=0:100
+for i=0:10
     denoise = peronaMalikSteps(denoise, 0.05, 10, 0.1);
     imshow(denoise);
     pause(0.1)
