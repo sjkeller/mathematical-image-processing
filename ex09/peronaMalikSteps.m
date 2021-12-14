@@ -5,29 +5,41 @@ function [U] = peronaMalikSteps(U_0,kappa,nsteps,dt)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% filter for calculating deltas of image and their neighbours
+upper = [0 1 0; 0 -1 0; 0 0 0];
+lower = [0 0 0; 0 -1 0; 0 1 0];
+right = [0 0 0; 0 -1 1; 0 0 0];
+left = [0 0 0; 1 -1 0; 0 0 0];
+
 % pad image with zeros and convert image
-dU_0 = zeros(size(U_0) + 4);
-dU_0(3:end - 2, 3:end - 2) = im2double(U_0);
+dU_0 = zeros(size(U_0) + 2);
+dU_0(2:end - 1, 2:end - 1) = im2double(U_0);
 
-g = @(s) 1 ./ (1 + (s.^2)/(kappa^2));
+% iterate diffusion for nsteps
+for t = 1:nsteps
 
-for i=1:nsteps
-    % filter for calculating deltas of image and their neighbours
-    lower = filter2([0 0 0; 0 -1 0; 0 1 0], dU_0);
-    right = filter2([0 0 0; 0 -1 1; 0 0 0], dU_0);
+        nabla_upper = filter2(upper, dU_0);
+        nabla_lower = filter2(lower, dU_0);   
+        nabla_left = filter2(left, dU_0);
+        nabla_right = filter2(right, dU_0); 
+        
+        % Smoothing function g1
+        d_upper = 1./(1 + (nabla_upper/kappa).^2);
+        d_lower = 1./(1 + (nabla_lower/kappa).^2);
+        d_left = 1./(1 + (nabla_left/kappa).^2);
+        d_right = 1./(1 + (nabla_right/kappa).^2);
 
-    scaled_lower = (g(lower) .* (lower));
-    scaled_right = (g(right) .* (right));
-    
-    lower2 = filter2([0 0 0; 0 -1 0; 0 1 0], scaled_lower);
-    right2 = filter2([0 0 0; 0 -1 1; 0 0 0], scaled_right);
-    
-    % apply calculated deltas to image pixels and its neighbours (step)
-    dU_0 = dU_0 + dt * (lower2 + right2);
+        % partial differential equation
+        dU_0 = dU_0 + dt * (...
+               d_upper .* nabla_upper ...
+            +  d_lower .* nabla_lower ... 
+            +  d_left .* nabla_left ... 
+            +  d_right .* nabla_right);
+           
 end
 
 % reverse image conversion
-U = im2uint8(dU_0(3:end - 2, 3:end - 2));
+U = im2uint8(dU_0(2:end - 1, 2:end - 1));
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
