@@ -1,0 +1,11 @@
+Points for the assignments of week 09
+
+Task   : Your points / Achievable points
+
+Ex 5.10 b)   : 4 / 5
+Ex 5.10 c,d) : 4 / 5
+
+You have achieved 69.5 of 80 points so far.
+
+Comment: your code is very similar to the following page:
+https://de.mathworks.com/matlabcentral/fileexchange/14995-anisotropic-diffusion-perona-malik

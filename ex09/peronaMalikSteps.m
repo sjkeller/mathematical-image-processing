@@ -13,7 +13,7 @@ left = [0 0 0; 1 -1 0; 0 0 0];
 
 % pad image with zeros and convert image
 dU_0 = zeros(size(U_0) + 2);
-dU_0(2:end - 1, 2:end - 1) = im2double(U_0);
+dU_0(2:end - 1, 2:end - 1) = im2double(U_0); %wrong boundary condition
 
 % iterate diffusion for nsteps
 for t = 1:nsteps
