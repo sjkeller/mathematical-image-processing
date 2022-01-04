@@ -20,7 +20,7 @@ KGy = -1 * KGx';
 Gx = filter2(KGx, tmp);
 Gy = filter2(KGy, tmp);
 
-G = abs(Gx) + abs(Gy); %(Gx.^2 + Gy.^2).^(.5);
+G = abs(Gx) + abs(Gy); %(Gx.^2 + Gy.^2).^(.5); &why 1 norm?
 
 theta = atan(abs(Gy)/abs(Gx));
 
