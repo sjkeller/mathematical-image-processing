@@ -4,7 +4,9 @@ function [B]=normalize(A)
 %   See also rescale.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% YOUR CODE HERE
+min_val = min(A, [], 'all');
+max_val = max(A, [], 'all');
+B = (A-min_val)/(max_val-min_val);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% by NAME
+% by Sergej Keller, Lennart Scherz, Pascal Urban
